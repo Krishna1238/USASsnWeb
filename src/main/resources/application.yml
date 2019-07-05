@@ -1,0 +1,20 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    driver-class-name:  oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: krishna
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp
+app:
+ properties:
+  successMessage: Data  saved successfully.
+  failedToLoad: Failed to load.
+    
