@@ -20,7 +20,7 @@ import com.usa.federal.gov.ssa.config.AppConfig;
 import com.usa.federal.gov.ssa.exception.NoDataFound;
 import com.usa.federal.gov.ssa.exception.RegistrationFailed;
 import com.usa.federal.gov.ssa.model.SsnEnrollmentModel;
-import com.usa.federal.gov.ssa.model.StatesModel;
+import com.usa.federal.gov.ssa.model.StateModel;
 import com.usa.federal.gov.ssa.service.SsnGenerationService;
 import com.usa.federal.gov.ssa.util.AppConstantsUtils;
 
@@ -57,7 +57,7 @@ public class SsnEnrollmentController {
 	 */
 
 	@GetMapping("/ssnregistration")
-	@ApiOperation("This Get method us for SSN Registration")
+	@ApiOperation("This Get method is for SSN Registration")
 	public String ssnRegistration(Model model) {
 		/**
 		 * The add attribute key must be same as modelAttribute in JSP page
@@ -159,12 +159,12 @@ public class SsnEnrollmentController {
 	@ApiOperation("This Get method for save state in STATE_MASTER table")
 	public String saveStates(Model model) {
 
-		StatesModel statesModel = new StatesModel();
-		statesModel.setStateId(1);
-		statesModel.setStateName("Alabama");
-		statesModel.setStateCode("AL");
+		StateModel stateModel = new StateModel();
+		stateModel.setStateId(1);
+		stateModel.setStateName("Alabama");
+		stateModel.setStateCode("AL");
 
-		ssnService.saveState(statesModel);
+		ssnService.saveState(stateModel);
 		/**
 		 * Reading msg form yml using AppConfig cls..
 		 * 

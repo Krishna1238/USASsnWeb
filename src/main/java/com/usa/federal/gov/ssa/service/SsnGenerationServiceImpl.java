@@ -17,7 +17,7 @@ import com.usa.federal.gov.ssa.exception.NoSsnDetailsFound;
 import com.usa.federal.gov.ssa.exception.NoStateFoundList;
 import com.usa.federal.gov.ssa.exception.RegistrationFailed;
 import com.usa.federal.gov.ssa.model.SsnEnrollmentModel;
-import com.usa.federal.gov.ssa.model.StatesModel;
+import com.usa.federal.gov.ssa.model.StateModel;
 import com.usa.federal.gov.ssa.repository.SsnMasterRepository;
 import com.usa.federal.gov.ssa.repository.StatesMasterRepository;
 import com.usa.federal.gov.ssa.util.AppConstantsUtils;
@@ -50,13 +50,13 @@ public class SsnGenerationServiceImpl implements SsnGenerationService {
 	 * This method for saving State to data base..
 	 */
 	@Override
-	public String saveState(StatesModel statesModel) {
+	public String saveState(StateModel stateModel) {
 
 		LOG.debug("saveState method started");
 		StateMasterEntity stateEntity = new StateMasterEntity();
 
-		if (statesModel != null) {
-			BeanUtils.copyProperties(statesModel, stateEntity);
+		if (stateModel != null) {
+			BeanUtils.copyProperties(stateModel, stateEntity);
 			sateRepo.save(stateEntity);
 			LOG.debug("save method ended..");
 			LOG.info("state save sussfully..");
